@@ -12,8 +12,11 @@ public class Entity {
 
 OutputPanel op;
 	
-	BufferedImage image, imageLinks, imageRechts, imageMitte;
+	BufferedImage image, SchildkroeteLinks, SchildkroeteRechts, SchildkroeteMitte;
+	BufferedImage Schnecke1, Schnecke2, Schnecke3;
 	BufferedImage imageSchnecke;
+	int width = 100;
+	int heigth = 50;
 	public int spritecounter;
 	public double x=20, y=360;
 	public boolean collisionEntity = false;
@@ -23,20 +26,21 @@ OutputPanel op;
 		getImage();
 	}
 	
-	public void drawSchnecke(Graphics2D d2g) {
-		 
-	}
-	
-	public void drawSchildkröte(Graphics2D d2g) {
-		d2g.drawImage(image, (int) x,(int) y, 100, 50, this.op);
+	 
+	public void drawEntity(Graphics2D d2g) {
+		d2g.drawImage(image, (int) x,(int) y, width, heigth, this.op);
 	}
 	
 	public void getImage() {
 		try {
 			 
-			imageLinks = ImageIO.read(getClass().getResourceAsStream("/picture/SchildkröteLinks.png"));
-			imageRechts = ImageIO.read(getClass().getResourceAsStream("/picture/SchildkröteRechts.png"));
-			imageMitte = ImageIO.read(getClass().getResourceAsStream("/picture/SchildkröteMitte.png"));
+			SchildkroeteLinks = ImageIO.read(getClass().getResourceAsStream("/picture/SchildkröteLinks.png"));
+			SchildkroeteRechts = ImageIO.read(getClass().getResourceAsStream("/picture/SchildkröteRechts.png"));
+			SchildkroeteMitte = ImageIO.read(getClass().getResourceAsStream("/picture/SchildkröteMitte.png"));
+			
+			Schnecke1 = ImageIO.read(getClass().getResourceAsStream("/picture/Schnecke1.png"));
+			Schnecke2 = ImageIO.read(getClass().getResourceAsStream("/picture/Schnecke2.png"));
+			Schnecke3 = ImageIO.read(getClass().getResourceAsStream("/picture/Schnecke3.png"));
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -59,22 +63,43 @@ OutputPanel op;
 	public void spriteCounter() {
 		if(this.op.aufgabe) {
 		spritecounter++;
+		
+	if(op.level==1) {	 
 		if (spritecounter < 20) {
-			image = imageLinks;
+			image = Schnecke1; 
 		}
 		if (spritecounter > 40 & spritecounter < 60) {
-			image = imageMitte;
+			image = Schnecke2;
 		}
 		if (spritecounter > 60 & spritecounter < 80) {
-			image = imageRechts;
+			image = Schnecke3;
 		}
 		if (spritecounter > 80 & spritecounter < 100) {
-			image = imageMitte;
+			image = Schnecke2;
 		}
 		
 		if (spritecounter > 100) {
 			spritecounter = 0;
 		}
-	 }
+	   }
+	if(op.level==2) {	
+		if (spritecounter < 20) {
+			image = SchildkroeteLinks;
+		}
+		if (spritecounter > 40 & spritecounter < 60) {
+			image = SchildkroeteMitte;
+		}
+		if (spritecounter > 60 & spritecounter < 80) {
+			image = SchildkroeteRechts;
+		}
+		if (spritecounter > 80 & spritecounter < 100) {
+			image = SchildkroeteMitte;
+		}
+		
+		if (spritecounter > 100) {
+			spritecounter = 0;
+		}
+	}
+ }
 	}
 }

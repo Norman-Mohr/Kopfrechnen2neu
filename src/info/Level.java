@@ -1,13 +1,20 @@
 package info;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import kopfrechnen2.OutputPanel;
 
 public class Level {
 
 	OutputPanel op;
+	Graphics2D d2g;
 
 	public Level(OutputPanel op) {
 		this.op = op;
+		 
 	}
 
 	public void update() {
@@ -16,6 +23,20 @@ public class Level {
 		switch (op.level) {
 		
 		case 1: 
+			
+			d2g = (Graphics2D) op.getGraphics();
+			d2g.setFont(new Font("Arial",3,140));
+			d2g.setColor(Color.magenta);
+			d2g.drawString("Level "+op.level, 110,210);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				 
+				e.printStackTrace();
+			}
+
+			
 			if(op.addition != null) {
 				op.addition.updateLevel(30);
 			}
@@ -32,7 +53,23 @@ public class Level {
 			
 			break;
 		
-		case 2:
+		case 2:  
+			 
+			d2g = (Graphics2D) op.getGraphics();
+			d2g.setFont(new Font("Arial",3,140));
+			d2g.setColor(Color.magenta);
+			d2g.drawString("Level "+op.level, 110,210);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				 
+				e.printStackTrace();
+			}
+
+			op.player.x = 20;
+			op.entity.x = 20;
+			
 			if (op.addition != null) {
 				op.addition.updateLevel(80);
 			}

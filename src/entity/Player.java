@@ -12,7 +12,7 @@ public class Player {
 
 	OutputPanel op;
 	BufferedImage image, image1, image2, image3;
-	public int x, stepX;
+	public int x, stepX=150;
 	public int y;
 	private int spriteCounter;
 	public boolean collisionZiel = false;
@@ -49,7 +49,8 @@ public class Player {
 	public void update() {
  
 		if(step) {
-		if(x < 20+stepX) {  x += 1;  spriteCounter();   }  
+			x += 1;  spriteCounter();
+		if(x > 20+stepX) {  step = false;  stepX+=150;  }  
 		}
 		
 		if (collisionZiel) {

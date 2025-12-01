@@ -34,6 +34,11 @@ import tileManager.Tile;
 
 public class OutputPanel extends JPanel implements ActionListener { // Game Panel
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5147113207552137258L;
+	
 	private JButton btnEnter, btnBeenden, btnStart;
 	public JTextField txfeingabe;;
 
@@ -185,7 +190,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 
 		tile.drawTile(d2g);
 
-		entity.drawSchildkröte(d2g);
+		entity.drawEntity(d2g);
 
 		player.draw(d2g);
 
@@ -237,7 +242,6 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 
 				auswertung();
 				EinMalEins.factorPlus = true;
-                player.stepX += 150;
                 
 				System.out.println("Hallo Thread !!!!!!");
 				if (!stopuhr1.isAlive() & !stopuhr1.isInterrupted()) {
@@ -401,15 +405,13 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 			if (drawRichtig) {
 				d2g.setColor(Color.decode("230"));
 				d2g.drawString("Gut! Das Ergebniss ist richtig!", 50, 180);
-			 
-				player.step = true;
+			
 			    
 			} else {
 				d2g.setColor(Color.decode("160"));
 				d2g.drawString("Das Ergebniss ist leider falsch!", 50, 180);
 				d2g.drawString("Richtig währe " + ergebniss, 220, 245);
-
-				player.step = false;
+ 
 			}
 		}
 
@@ -474,6 +476,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 			System.out.println("funktionitert!");
 			auswertung = true;
 			aufgabe = false;
+			player.step = true;
 		 
 		} else {
 			drawRichtig = false;
