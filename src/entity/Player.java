@@ -27,6 +27,7 @@ public class Player {
 		System.out.println("Hallo das ist eine Änderung.");
 		System.out.println("Hallo das ist eine Änderung 2.");
 		System.out.println("Hallo das ist eine Änderung 3.");
+		System.out.println("Hallo das ist eine Änderung 4.");
 	}
 
 	public void draw(Graphics2D d2g) {
