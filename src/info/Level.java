@@ -34,7 +34,7 @@ public class Level {
 				 
 				e.printStackTrace();
 			}
-
+            op.txfeingabe.setEnabled(true);
 			
 			if(op.addition != null) {
 				op.addition.updateLevel(30);
@@ -59,12 +59,17 @@ public class Level {
 			d2g.setColor(Color.magenta);
 			d2g.drawString("Level "+op.level, 110,210);
 			
+			op.txfeingabe.setEnabled(false);
+			
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				 
 				e.printStackTrace();
 			}
+			
+			op.txfeingabe.setEnabled(true);
+			
             op.player.step = false;           
             op.player.stepX = 150;
 			op.player.x = 20;
