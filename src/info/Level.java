@@ -2,7 +2,6 @@ package info;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import kopfrechnen2.OutputPanel;
