@@ -65,7 +65,7 @@ public class Level {
 				 
 				e.printStackTrace();
 			}
-           
+            op.player.step = false;           
             op.player.stepX = 150;
 			op.player.x = 20;
 			op.entity.x = 20;
