@@ -49,7 +49,7 @@ public class Player {
 	public void update() {
  
 		if(step) {
-			x += 1;  spriteCounter();
+			x += 1;  spriteCounter();   int r = 4;
 		if(x > 20+stepX) {  step = false;  stepX+=150;  }  
 		}
 		
