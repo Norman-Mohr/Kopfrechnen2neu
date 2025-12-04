@@ -128,6 +128,7 @@ public class Level {
 		d2g.drawString("Level "+op.level, 110,210);
 		
 		op.txfeingabe.setEditable(false);
+		op.txfeingabe.setVisible(false);
 		
 	    try {
 			Thread.sleep(2000);
@@ -135,16 +136,15 @@ public class Level {
 		 
 			e.printStackTrace();
 		}
+	 
 	    
-	    new Timer(20, evt -> {
+	    new Timer(2000, evt -> {
             op.txfeingabe.setEditable(true);  
             op.txfeingabe.setVisible(true);
             op.txfeingabe.requestFocus();
             ((Timer) evt.getSource()).stop();
         }).start();
-	    
-		op.txfeingabe.setEditable(true);
-		 
+	  
 		op.entity.x = 20;
 		op.player.x = 20;
 		op.player.image = op.player.image2;
