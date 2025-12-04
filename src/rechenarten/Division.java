@@ -16,8 +16,8 @@ public class Division extends DatenDivision {
 		this.op = op;
 		
 		division = true;
-		quotient = zufallszahlenQuotient(10);
-		divisor = zufallszahlenDivisor(10);
+		quotient = zufallszahlenQuotient(11);
+		divisor = zufallszahlenDivisor(11);
 		divident = divident(quotient,divisor);
 	}
 	

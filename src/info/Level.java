@@ -10,7 +10,7 @@ public class Level {
 
 	OutputPanel op;
 	Graphics2D d2g;
-
+	boolean time = false;
 	public Level(OutputPanel op) {
 		this.op = op;
 		 
@@ -27,17 +27,20 @@ public class Level {
 			d2g.setFont(new Font("Arial",3,140));
 			d2g.setColor(Color.magenta);
 			d2g.drawString("Level "+op.level, 110,210);
-			
+			 
 			try {
 				Thread.sleep(2000);
+			 
 			} catch (InterruptedException e) {
 				 
 				e.printStackTrace();
 			}
-            
-			op.txfeingabe.setEditable(true);
-			op.txfeingabe.requestFocus();
-            
+			 
+			op.txfeingabe.setVisible(true);
+		    op.txfeingabe.setEditable(true);
+		    op.txfeingabe.requestFocus();
+			 
+			  
 			if(op.addition != null) {
 				op.addition.updateLevel(30);
 			}
@@ -56,26 +59,7 @@ public class Level {
 		
 		case 2:  
 			 
-			d2g = (Graphics2D) op.getGraphics();
-			d2g.setFont(new Font("Arial",3,140));
-			d2g.setColor(Color.magenta);
-			d2g.drawString("Level "+op.level, 110,210);
-			
-			op.txfeingabe.setEditable(false);
-			
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				 
-				e.printStackTrace();
-			}
-			
-			op.txfeingabe.setEditable(true);
-			
-            op.player.step = false;           
-            op.player.stepX = 150;
-			op.player.x = 20;
-			op.entity.x = 20;
+			 newLevel();
 			
 			if (op.addition != null) {
 				op.addition.updateLevel(80);
@@ -92,6 +76,9 @@ public class Level {
 			
 			break;
 		case 3:
+			
+			newLevel();
+			
 			if (op.addition != null) {
 				op.addition.updateLevel(120);
 			}
@@ -107,6 +94,9 @@ public class Level {
 			
 			break;
 		case 4:
+			
+			newLevel();
+			
 			if (op.addition != null) {
 				op.addition.updateLevel(120);
 			}
@@ -124,5 +114,30 @@ public class Level {
 			
 		}
 	        op.levelUp = false;     }
+	}
+	
+	void newLevel() {
+		
+		d2g = (Graphics2D) op.getGraphics();
+		d2g.setFont(new Font("Arial",3,140));
+		d2g.setColor(Color.magenta);
+		d2g.drawString("Level "+op.level, 110,210);
+		
+		op.txfeingabe.setEditable(false);
+		
+	    try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+		 
+			e.printStackTrace();
+		}
+	    
+		op.txfeingabe.setEditable(true);
+		 
+		op.entity.x = 20;
+		op.player.x = 20;
+		op.player.image = op.player.image2;
+		op.player.step = false;
+		op.player.stepX = 150;
 	}
 }

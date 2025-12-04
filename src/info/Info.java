@@ -34,7 +34,7 @@ public class Info {
     public void drawAufgabe(Graphics2D d2g) {
     	 d2g.setFont(new Font("Arial", 1, 20));
 	     d2g.setColor(Color.decode("#FFB90F"));
-   	     d2g.drawString("Aufgabe : "+ (op.zaehler+1), 20, 60);
+   	     d2g.drawString("Aufgabe : "+ (op.aufgabeNeu), 20, 60);
     }
     
     public void drawEingabe(Graphics2D d2g) {

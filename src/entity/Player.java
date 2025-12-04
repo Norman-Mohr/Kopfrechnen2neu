@@ -11,7 +11,9 @@ import kopfrechnen2.OutputPanel;
 public class Player {
 
 	OutputPanel op;
-	BufferedImage image, image1, image2, image3;
+	 
+	public BufferedImage image, image1, image2, image3;
+ 
 	public int x=20, stepX=150;
 	public int y;
 	private int spriteCounter;
@@ -52,8 +54,7 @@ public class Player {
 			x += 1;  spriteCounter();    
 		if(x > stepX) {  step = false;  stepX+=150;  }  
 		}
-		if(op.levelUp) {  x += 1;  spriteCounter();   }
-		
+		 
 		if (collisionZiel) {
 			op.punkte = op.punkte + op.punkteExtra;
 			op.entity.x = 20;

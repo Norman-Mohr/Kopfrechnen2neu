@@ -39,7 +39,7 @@ public class Subtraction extends SuperZahlen {
 		if (op.vier) {
 			d2g.drawString("Wieviel ergibt ", 50, 130);
 			d2g.setColor(Color.decode("200210200"));
-			d2g.drawString(" " + a + " - " + b + " - " + c + " + " + d, 80, 190);
+			d2g.drawString(" " + a + " - " + b + " - " + c + " - " + d, 80, 190);
 		}
 	  }
 	}

@@ -76,7 +76,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 
 	public String name;
 	public String eingabe;
-	public int zaehler = 0;
+	public int zaehler = 0, aufgabeNeu = 1;
 	public int ergebniss;
 	public int punkte = 0, punkteExtra = 10;
 	public boolean playerStep = false, entityStep = false;
@@ -85,7 +85,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 	public boolean auswertung = false;
 	public boolean drawRichtig;
 	public boolean aufgabe = false;
-	public boolean levelUp = true;
+	public boolean levelUp = false;
 	public boolean zwei = true, drei = false, vier = false, fertig = false;
 
 	private String zahl;
@@ -144,7 +144,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 		txfeingabe = new JTextField();
 		txfeingabe.setBounds(90, 210, 120, 40);
 		txfeingabe.setVisible(false);
-	    txfeingabe.setEditable(false);
+		txfeingabe.setEditable(false);
 		txfeingabe.setHorizontalAlignment(SwingConstants.CENTER);
 		txfeingabe.addActionListener(this);
 		this.add(txfeingabe);
@@ -209,7 +209,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 
 		cCeck.collisionCheck();
 
-		if(this.e.getSource() == btnStart) {   start();    }
+		if(this.e.getSource() == btnStart) {  start();  }
 
 		if (this.e.getSource() == btnBeenden) { // altes Panel löschen
  
@@ -317,9 +317,10 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 			    
 				btnEnter.setEnabled(true);
 				btnBeenden.setEnabled(true);
-				txfeingabe.setVisible(true);
+				txfeingabe.setVisible(false);
 				aufgabe = true;
 				schwierigkeit = 1;
+				levelUp = true;
 				level = 1;
 				addition.name = "addition";
 
@@ -333,12 +334,13 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 				 
 				btnEnter.setEnabled(true);
 				btnBeenden.setEnabled(true);
-				txfeingabe.setVisible(true);
-				aufgabe = true;
+				txfeingabe.setVisible(false);
+			    aufgabe = true;
 				schwierigkeit = 1;
+				levelUp = true;
 				level = 1;
 				subtraction.name = "subtraction";
-
+ 
 				timer.start();
 				break;
 				
@@ -351,6 +353,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 				txfeingabe.setVisible(true);
 				aufgabe = true;
 				schwierigkeit = 1;
+				levelUp = true;
 				level = 1;
 				multiplikation.name = "multiplikation";
 
@@ -366,10 +369,12 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 				txfeingabe.setVisible(true);
 				aufgabe = true;
 				schwierigkeit = 1;
+				levelUp = true;
 				level = 1;
 				einmaleins.name = "einmaleins";
                 mp.stp.timer.stop();
-				timer.start();
+				 
+                timer.start();
 				break;
 				
 			case "Division":
@@ -381,9 +386,10 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 				txfeingabe.setVisible(true);
 				aufgabe = true;
 				schwierigkeit = 1;
+				levelUp = true;
 				level = 1;
 				division.name = "division";
-
+ 
 				timer.start();
 				break;
 
@@ -416,7 +422,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 	void exceptions() throws LeereEingabeException, FormatEingabeException {
 
 		try {
-
+			 
 			if (txfeingabe.getText().equals("")) {
 				throw new LeereEingabeException("Bitte geben Sie das Ergebniss ein!");
 			} else {
@@ -430,7 +436,8 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 				this.eingabe = txfeingabe.getText();
 				eingabeNeu = false;
 			}
-			 
+			  
+		   
 
 		} catch (LeereEingabeException e) {
 			System.out.println("Keine Eingabe : " + e.getMessage());
@@ -495,79 +502,62 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 
 		if (addition != null || subtraction != null) {
 
-			if (zaehler == 4) {
+			if (aufgabeNeu == 5) {
 				drei = true;
 				zwei = false;
 				schwierigkeit = 2;
 			}
-			if (zaehler == 9) {
+			if (aufgabeNeu == 10) {
 				vier = true;
 				drei = false;
 				schwierigkeit = 3;
 			}
-			if (zaehler == 14) {
+			if (aufgabeNeu == 15) {
 				fertig = true;
 				vier = false;
 				schwierigkeit = 1;
 			}
-			zaehler++;
+			 
 			if (fertig) {
 				level++;
 				levelUp = true;
 				fertig = false;
 				zwei = true;
 				zaehler = 0;
+				aufgabeNeu = 0;
 			}
 
 		}
 		if (multiplikation != null & level < 4) {
-			if (zaehler == 8) {
+			if (aufgabeNeu == 10) {
 				fertig = true;
 				schwierigkeit = 1;
 			}
-			zaehler++;
+			 
 			if (fertig) {
 				level++;
 				levelUp = true;
 				fertig = false;
 				zaehler = 0;
+				aufgabeNeu = 0;
 			}
 
 		}
 
-		if (multiplikation != null & level > 3) {
-			if (zaehler == 3) {
-				drei = true;
-				zwei = false;
-				schwierigkeit = 2;
-			}
-			if (zaehler == 8) {
-				fertig = true;
-				drei = false;
-				schwierigkeit = 1;
-			}
-			zaehler++;
-			if (fertig) {
-				level++;
-				levelUp = true;
-				fertig = false;
-				zwei = true;
-				zaehler = 0;
-			}
-
-		}
+	 
 
 		if (division != null) {
-			if (zaehler == 9) {
+			if (aufgabeNeu == 10) {
 				fertig = true;
 			}
-			zaehler++;
+		 
 			if (fertig) {
 				level++;
 				levelUp = true;
 				fertig = false;
 				zwei = true;
 				zaehler = 0;
+				aufgabeNeu = 0;
 			}
 		}
 
@@ -593,7 +583,8 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 					txfeingabe.setEditable(true);
 					txfeingabe.requestFocus();
 					konzentration = false;
-
+                    zaehler++;
+                    ++aufgabeNeu;  
 				}
 			}
 		}
