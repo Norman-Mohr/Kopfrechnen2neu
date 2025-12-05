@@ -78,7 +78,7 @@ public class Level {
 			break;
 		
 		case 2:  
-			 
+			 op.keyH.keyPressed=false;
 			 newLevel();
 			
 			if (op.addition != null) {
@@ -88,7 +88,7 @@ public class Level {
 				op.subtraction.updateLevel(10,30);
 			}               
 			if (op.multiplikation != null) {
-				op.multiplikation.updateLevelMulti(2,12);
+				op.multiplikation.updateLevelMulti(2,13);
 			}       
 			if (op.division != null) {
 				op.division.updateLevel(12);
@@ -106,7 +106,7 @@ public class Level {
 				op.subtraction.updateLevel(20,40);
 			}       
 			if (op.multiplikation != null) {
-				op.multiplikation.updateLevelMulti(20,40);
+				op.multiplikation.updateLevelMulti(4,15);
 			}     
 			if (op.division != null) {
 				op.division.updateLevel(14);
@@ -124,7 +124,7 @@ public class Level {
 				op.subtraction.updateLevel(30,50);
 			}       
 			if (op.multiplikation != null) {
-				op.multiplikation.updateLevelMulti(30,50);
+				op.multiplikation.updateLevelMulti(6,17);
 			}       
 			if (op.division != null) {
 				op.division.updateLevel(16);
@@ -149,10 +149,9 @@ public class Level {
 			@Override
 			public void run() {
 				 
-				    op.txfeingabe.setText("");
+				    
 					op.txfeingabe.setEditable(false);
 					op.txfeingabe.setVisible(false);
-		 
 			}
 			
 		};   

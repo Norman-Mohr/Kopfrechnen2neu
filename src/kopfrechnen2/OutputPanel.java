@@ -236,7 +236,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 			this.txfeingabe.setText("");
 		}
 
-		if (this.e.getSource() == btnEnter || keyH.keyPressed) {
+		if (this.e.getSource()==btnBeenden || keyH.keyPressed) {
 
 			exceptions();
 
@@ -261,19 +261,15 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 				}
 			}
 		}
-
-		try {
-			update();
-		} catch (InterruptedException e1) {
+		
+	    update();
+		repaint();  
 			 
-			e1.printStackTrace();
 		}
+			
 
-		repaint();
 
-	}
-
-	void update() throws InterruptedException {
+	void update() {
 		
 		 
 
