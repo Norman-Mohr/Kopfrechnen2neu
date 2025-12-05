@@ -5,9 +5,8 @@ import java.util.Random;
 import kopfrechnen2.OutputPanel;
 
 public class SuperZahlen {
- 
-	public int[] zahlenGesammt = new int[400];
-	public int[] zahlen = new int[30];
+  
+	public int[] zahlen;
 	
 	public int[] zahl1 = new int[30];
 	public int[] zahl2 = new int[30];
@@ -37,34 +36,24 @@ public class SuperZahlen {
 		 this.op = op;
 	}
  
-	
-	public int[] zahlenGesammt() {
-		
-		for(int a=0; a<400; a++) {
-			zahlenGesammt[a]=a;
-		}
-		return zahlenGesammt;
-	}
-	
-	public int[] zufallVonBis(int von, int bis) {
- 
-		int length = bis-von;
+	 
+	 
+	public int[] zufallVonBis(int min, int max) {
+		int length = max - min;
 		zahlen = new int[length];
-		
+
 		for (int z = 0; z < length; z++) {
-			zahlen[z] = rand.nextInt(bis) + von;
+			zahlen[z] = rand.nextInt((max - min) + 1) + min;
 			for (int t = 0; t < z; t++) {
 				if (zahlen[t] == zahlen[z]) {
 					z--;
 				}
-
 			}
 		}
 		return zahlen;
 	}
-	
 
-	public int[] zufallszahlen(int length) {
+/*	public int[] zufallszahlen(int length) {
 
 		zahlen = new int[length];
 		
@@ -79,27 +68,37 @@ public class SuperZahlen {
 		}
 		return zahlen;
 	}
+	 */
 	
 	
 	
-	
-	public void updateLevel(int index) {
-		 
+	public void updateLevel(int min, int max) {
+		    int index = max-min;
 			a = 0; b = 0; c = 0; d = 0; e = 0;
 			zahl1 = new int[index];
 			zahl2 = new int[index];
 			zahl3 = new int[index];
 			zahl4 = new int[index];
 			zahl5 = new int[index];
-			zahl1 = zufallszahlen(index);
-			zahl2 = zufallszahlen(index);
-			zahl3 = zufallszahlen(index);
-			zahl4 = zufallszahlen(index);
-			zahl5 = zufallszahlen(index);
+			zahl1 = zufallVonBis(min, max);
+			zahl2 = zufallVonBis(min, max);
+			zahl3 = zufallVonBis(min, max);
+			zahl4 = zufallVonBis(min, max);
+			zahl5 = zufallVonBis(min, max);
 			
 			a = zahl1[0];
 			b = zahl2[0];
 			 
+	}
+	public void updateLevelMulti(int min, int max) {
+		int index = max-min;
+		a = 0; b = 0; c = 0;
+		zahl1 = new int[index];
+		zahl2 = new int[index];
+		zahl3 = new int[index];
+		zahl1 = zufallVonBis(min, max);
+		zahl2 = zufallVonBis(min, max);
+		zahl3 = zufallVonBis(min, max);
 	}
 	 
 }

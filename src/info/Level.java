@@ -62,18 +62,18 @@ public class Level {
 			thread.start();
 		  
 			if(op.addition != null) {
-				op.addition.updateLevel(30);
+				op.addition.updateLevel(0, 15);
 			}
 			if (op.subtraction != null) {
-				op.subtraction.updateLevel(30);
+				op.subtraction.updateLevel(0, 15);
 			}        
 			
 			if (op.multiplikation != null) {
-				op.multiplikation.updateLevel(9);
+				op.multiplikation.updateLevelMulti(0, 10);
 			}       
-		/*	if (op.division != null) {
-		 *		op.division.updateLevel(10);
-			}    */     
+		 	if (op.division != null) {
+		  		op.division.updateLevel(10);
+			}        
 			
 			break;
 		
@@ -82,13 +82,13 @@ public class Level {
 			 newLevel();
 			
 			if (op.addition != null) {
-				op.addition.updateLevel(80);
+				op.addition.updateLevel(10,30);
 			}
 			if (op.subtraction != null) {
-				op.subtraction.updateLevel(80);
+				op.subtraction.updateLevel(10,30);
 			}               
 			if (op.multiplikation != null) {
-				op.multiplikation.updateLevel(10);
+				op.multiplikation.updateLevelMulti(2,12);
 			}       
 			if (op.division != null) {
 				op.division.updateLevel(12);
@@ -100,13 +100,13 @@ public class Level {
 			newLevel();
 			
 			if (op.addition != null) {
-				op.addition.updateLevel(120);
+				op.addition.updateLevel(20,40);
 			}
 			if (op.subtraction != null) {
-				op.subtraction.updateLevel(120);
+				op.subtraction.updateLevel(20,40);
 			}       
 			if (op.multiplikation != null) {
-				op.multiplikation.updateLevel(15);
+				op.multiplikation.updateLevelMulti(20,40);
 			}     
 			if (op.division != null) {
 				op.division.updateLevel(14);
@@ -118,13 +118,13 @@ public class Level {
 			newLevel();
 			
 			if (op.addition != null) {
-				op.addition.updateLevel(120);
+				op.addition.updateLevel(30,50);
 			}
 			if (op.subtraction != null) {
-				op.subtraction.updateLevel(120);
+				op.subtraction.updateLevel(30,50);
 			}       
 			if (op.multiplikation != null) {
-				op.multiplikation.updateLevel(9);
+				op.multiplikation.updateLevelMulti(30,50);
 			}       
 			if (op.division != null) {
 				op.division.updateLevel(16);
@@ -148,12 +148,11 @@ public class Level {
 
 			@Override
 			public void run() {
-				SwingUtilities.invokeLater(() -> {
+				 
 				    op.txfeingabe.setText("");
 					op.txfeingabe.setEditable(false);
 					op.txfeingabe.setVisible(false);
-				  
-			});
+		 
 			}
 			
 		};   
