@@ -97,7 +97,10 @@ public class Lives {
 					op.invalidate();
 					op.punkteGesammt();
 					op.entity.active = false;
-					op.entity.x = 150;
+					op.entity.x = 80;
+					op.entity.y = 80;
+					op.entity.width = 480;
+					op.entity.heigth = 210;
 				 
 				 
 					try {

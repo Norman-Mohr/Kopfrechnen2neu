@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
@@ -16,6 +18,7 @@ public class Level {
 	Component[] cont = new OutputPanel[4];
 	Graphics2D d2g;
 	boolean time = false;
+	private boolean t = true;
 
 	public Level(OutputPanel op) {
 		this.op = op;
@@ -80,7 +83,7 @@ public class Level {
 				break;
 
 			case 2:
-				  
+
 				newLevel();
 
 				if (op.addition != null) {
@@ -140,50 +143,59 @@ public class Level {
 	}
 
 	void newLevel() {
-		
-		op.keyH.keyPressed = false;
-	 
-		d2g = (Graphics2D) op.getGraphics();
-		d2g.setFont(new Font("Arial", 3, 140));
-		d2g.setColor(Color.magenta);
-		d2g.drawString("Level " + op.level, 110, 210);
+
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+
+				op.txfeingabe.setEditable(false);
+				op.txfeingabe.setVisible(false);
+
+			}
+
+		}).start();
 
 		Runnable myRunnable = new Runnable() {
 
 			@Override
 			public void run() {
- 
-				op.txfeingabe.setEditable(false);
-				op.txfeingabe.setVisible(false);
 
 				try {
-					Thread.sleep(2500);
+					Thread.sleep(2000);
 				} catch (InterruptedException e) {
 
 					e.printStackTrace();
 				}
+
 				op.txfeingabe.setEditable(true);
 				op.txfeingabe.setVisible(true);
 				op.txfeingabe.requestFocus();
-				 
 			}
-
 		};
 
 		Thread thread = new Thread(myRunnable);
 		thread.start();
 
+		op.keyH.keyPressed = false;
+
+		d2g = (Graphics2D) op.getGraphics();
+		d2g.setFont(new Font("Arial", 3, 140));
+		d2g.setColor(Color.magenta);
+		d2g.drawString("Level " + op.level, 110, 210);
+
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1500);
 		} catch (InterruptedException e) {
 
 			e.printStackTrace();
 		}
- 
+
 		op.entity.x = 20;
 		op.player.x = 20;
 		op.player.image = op.player.image2;
 		op.player.step = false;
 		op.player.stepX = 150;
+
 	}
 }

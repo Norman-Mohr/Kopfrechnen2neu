@@ -16,8 +16,8 @@ public class Entity {
  	public BufferedImage SchildkroeteLinks, SchildkroeteRechts, SchildkroeteMitte;
  	BufferedImage Schnecke1, Schnecke2, Schnecke3;
 	BufferedImage imageSchnecke;
-	int width = 100;
-	int heigth = 50;
+	public int width = 100;
+	public int heigth = 50;
 	public int spritecounter;
 	public double x = 20, y = 360;
 	public boolean collisionZiel = false;
@@ -56,7 +56,7 @@ public class Entity {
 			x = 20;
 		}
 		if (op.entityStep) {
-			x += 2;
+			x += 4;
 			spriteCounter();
 		}
 
