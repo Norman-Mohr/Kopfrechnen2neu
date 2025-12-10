@@ -56,7 +56,7 @@ public class Player {
 		}
 		 
 		if (collisionZiel) {
-			op.punkte = op.punkte + op.punkteExtra;
+			 
 			op.entity.x = 20;
 			op.player.x = 20;
 			collisionZiel = false;

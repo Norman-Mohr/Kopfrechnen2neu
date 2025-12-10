@@ -8,8 +8,8 @@ public class MainPanel extends JPanel {
 
 	MainFrame mainFrame;
 	StartPanel stp;
-	OutputPanel op;
-	AuswertungsPanel ap;
+	public OutputPanel op;
+	public AuswertungsPanel ap;
 	
 	  MainPanel(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;

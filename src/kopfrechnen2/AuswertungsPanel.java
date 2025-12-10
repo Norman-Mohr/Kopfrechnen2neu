@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class AuswertungsPanel extends JPanel {
 
@@ -40,7 +41,7 @@ public class AuswertungsPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == btnNeuesSpiel) {
-
+ 
 					mp.op = new OutputPanel(mp);
 					mp.op.setVisible(false);
 					mp.ap.setVisible(false);
@@ -49,7 +50,7 @@ public class AuswertungsPanel extends JPanel {
 
 					mp.add(mp.stp);
 					mp.add(mp.op);
-				 
+					 
 				}
 
 			}

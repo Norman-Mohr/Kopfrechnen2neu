@@ -39,7 +39,11 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 	 */
 	private static final long serialVersionUID = 5147113207552137258L;
 	
-	private JButton btnEnter, btnBeenden, btnStart;
+	public JButton btnEnter;
+
+	private JButton btnBeenden;
+
+	private JButton btnStart;
 	public JTextField txfeingabe;;
 
 	public BufferedImage image, imageLinks, imageMitte, imageRechts, imageStart, imageZiel;
@@ -65,7 +69,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 	public KeyHandler keyH;
 	public Info info;
 	public Collision cCeck;
-	Timer timer;
+	public Timer timer;
 
 	public String test = "Object nicht = null";
 
@@ -78,7 +82,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 	public String eingabe;
 	public int zaehler = 0, aufgabeNeu = 1;
 	public int ergebniss;
-	public int punkte = 0, punkteExtra = 10;
+	public int punkte = 0;
 	public boolean playerStep = false, entityStep = false;
 	public boolean konzentration = false;
 
@@ -113,7 +117,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 		tile = new Tile(this);
 		player = new Player(this);
 		entity = new Entity(this);
-		live = new Lives(this);
+		live = new Lives(this, this.mp);
 		cCeck = new Collision(this);
 		levelup = new Level(this);
 
@@ -236,7 +240,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 			this.txfeingabe.setText("");
 		}
 
-		if (this.e.getSource()==btnBeenden || keyH.keyPressed) {
+		if (this.e.getSource()==btnEnter || keyH.keyPressed) {
 
 			exceptions();
 
@@ -289,6 +293,7 @@ public class OutputPanel extends JPanel implements ActionListener { // Game Pane
 			division.update();
 		}
 
+		 
 		updateStop();
  
 		if (levelup != null) {

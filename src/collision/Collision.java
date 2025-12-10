@@ -12,7 +12,7 @@ public class Collision {
 
 	public void collisionCheck() {
 		if (op.entity.x > 395) {
-			op.entity.collisionEntity = true;
+			op.entity.collisionZiel = true;
 
 		}
 		if (op.player.x > 395) {
