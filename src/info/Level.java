@@ -85,7 +85,7 @@ public class Level {
 			case 2:
 
 				newLevel();
-
+                op.entity.speed = 0.2;
 				if (op.addition != null) {
 					op.addition.updateLevel(10, 30);
 				}
@@ -103,7 +103,7 @@ public class Level {
 			case 3:
 
 				newLevel();
-
+				op.entity.speed = 0.3;
 				if (op.addition != null) {
 					op.addition.updateLevel(20, 40);
 				}

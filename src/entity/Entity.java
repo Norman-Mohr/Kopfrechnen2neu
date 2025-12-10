@@ -24,6 +24,8 @@ public class Entity {
 
 	public boolean active = true;
 
+	public double speed = 0.1;
+
 	public Entity(OutputPanel op) {
 		this.op = op;
 		getImage();
@@ -56,7 +58,7 @@ public class Entity {
 			x = 20;
 		}
 		if (op.entityStep) {
-			x += 4;
+			x += speed ;
 			spriteCounter();
 		}
 
